@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>IOTA node status</title>
+    <script type="text/javascript" src="./iota-browser.js"></script>
+    <script>
+        var host1 = "https://sakura.iotanode.jp";
+        var port1 = "443";
+        var host2 = "https://tsubaki.iotanode.jp";
+        var port2 = "443";
+	var host3 = "https://ume.iotanode.jp";
+	var port3 = "14267";
+    </script>
+    <script type="text/javascript" src="./nodestatus.js"></script>
+    <link type="text/css" rel="stylesheet" href="./nodestatus.css">
+</head>
+<body>
+    <h1 id='hostname1'></h1>
+    <p id="date1"></p>
+    <table id="nodeinfotable1" class="nodeinfo" border="1">
+        <body><tr></tr></body>
+    </table>
+    <br>
+    <h1 id='hostname2'></h1>
+    <p id="date2"></p>
+    <table id="nodeinfotable2" class="nodeinfo" border="1">
+        <body><tr></tr></body>
+    </table>
+    <br>
+    <h1 id='hostname3'></h1>
+    <p id="date3"></p>
+    <table id="nodeinfotable3" class="nodeinfo" border="1">
+        <body><tr></tr></body>
+    </table>
+</body>
+</html>
