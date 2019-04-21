@@ -1,18 +1,18 @@
-var refreshMillis = 3000;
-var iota1 = new IOTA({
+const refreshMillis = 3000;
+const iota1 = new IOTA({
         'host': host1,
         'port': port1
 });
-var iota2 = new IOTA({
+const iota2 = new IOTA({
         'host': host2,
         'port': port2
 });
-var iota3 = new IOTA({
+const iota3 = new IOTA({
 	'host': host3,
 	'port': port3
 });
 
-function showNodeInfo1(){
+const showNodeInfo1 = () => {
     iota1.api.getNodeInfo(function(error, success) {
         if (error) {
             console.error("getNodeInfo error -------------");
@@ -21,7 +21,7 @@ function showNodeInfo1(){
         }
     })
 };
-function showNodeInfo2(){
+const showNodeInfo2 = () => {
     iota2.api.getNodeInfo(function(error, success) {
         if (error) {
             console.error("getNodeInfo error -------------");
@@ -30,7 +30,7 @@ function showNodeInfo2(){
         }
     })
 };
-function showNodeInfo3(){
+const showNodeInfo3 = () => {
     iota3.api.getNodeInfo(function(error, success) {
         if (error) {
             console.error("getNodeInfo error -------------");
@@ -39,20 +39,23 @@ function showNodeInfo3(){
         }
     })
 };
-function showTime1(){
+
+const showTime1 = () => {
     document.getElementById("date1").innerHTML = Date();
 };
-function showTime2(){
+const showTime2 = () => {
     document.getElementById("date2").innerHTML = Date();
 };
-function showTime3(){
+const showTime3 = () => {
     document.getElementById("date3").innerHTML = Date();
 };
-function refresh(fun, millis){
+
+const refresh = (fun, millis) => {
     fun();
     setInterval(fun, millis);
 };
-function flattenObjArray(arr){
+
+const flattenObjArray = (arr) => {
     ret = {};
     for (k in arr[0]){
         values = [];
@@ -63,7 +66,8 @@ function flattenObjArray(arr){
     }
     return ret;
 };
-function objArr2Table(objArr, tableID){
+
+const objArr2Table = (objArr, tableID) => {
     body = document.getElementById(tableID).tBodies[0];
     while( body.hasChildNodes() ){
         body.removeChild(body.lastChild);
@@ -83,17 +87,18 @@ function objArr2Table(objArr, tableID){
         body.appendChild(row)
     }
 };
-window.addEventListener(`DOMContentLoaded`, function(){
+
+window.addEventListener(`DOMContentLoaded`, () => {
     document.getElementById("hostname1").innerHTML = "ノード1: "+host1+':'+port1;
     refresh(showTime1, 1000);
     refresh(showNodeInfo1, refreshMillis);
 })
-window.addEventListener(`DOMContentLoaded`, function(){
+window.addEventListener(`DOMContentLoaded`, () => {
     document.getElementById("hostname2").innerHTML = "ノード2: "+host2+':'+port2;
     refresh(showTime2, 1000);
     refresh(showNodeInfo2, refreshMillis);
 })
-window.addEventListener(`DOMContentLoaded`, function(){
+window.addEventListener(`DOMContentLoaded`, () => {
     document.getElementById("hostname3").innerHTML = "ノード3: "+host3+':'+port3;
     refresh(showTime3, 1000);
     refresh(showNodeInfo3, refreshMillis);
