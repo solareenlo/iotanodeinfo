@@ -39,6 +39,7 @@ function showNodeInfo3(){
         }
     })
 };
+
 function showTime1(){
     document.getElementById("date1").innerHTML = Date();
 };
@@ -48,10 +49,12 @@ function showTime2(){
 function showTime3(){
     document.getElementById("date3").innerHTML = Date();
 };
+
 function refresh(fun, millis){
     fun();
     setInterval(fun, millis);
 };
+
 function flattenObjArray(arr){
     ret = {};
     for (k in arr[0]){
@@ -63,6 +66,7 @@ function flattenObjArray(arr){
     }
     return ret;
 };
+
 function objArr2Table(objArr, tableID){
     body = document.getElementById(tableID).tBodies[0];
     while( body.hasChildNodes() ){
@@ -83,6 +87,7 @@ function objArr2Table(objArr, tableID){
         body.appendChild(row)
     }
 };
+
 window.addEventListener(`DOMContentLoaded`, function(){
     document.getElementById("hostname1").innerHTML = "ノード1: "+host1+':'+port1;
     refresh(showTime1, 1000);
